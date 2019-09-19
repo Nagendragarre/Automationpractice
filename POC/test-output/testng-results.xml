@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="8" passed="8">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="38285" started-at="2019-09-18T06:59:53Z" finished-at="2019-09-18T07:00:31Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="38285" started-at="2019-09-18T06:59:53Z" finished-at="2019-09-18T07:00:31Z">
+      <class name="WeatherMap.Runner">
+        <test-method status="PASS" signature="read_objrep()[pri:0, instance:WeatherMap.Runner@5ce81285]" name="read_objrep" is-config="true" duration-ms="23" started-at="2019-09-18T06:59:53Z" finished-at="2019-09-18T06:59:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- read_objrep -->
+        <test-method status="PASS" signature="init_browser()[pri:1, instance:WeatherMap.Runner@5ce81285]" name="init_browser" duration-ms="12267" started-at="2019-09-18T06:59:53Z" finished-at="2019-09-18T07:00:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init_browser -->
+        <test-method status="PASS" signature="open_site()[pri:2, instance:WeatherMap.Runner@5ce81285]" name="open_site" duration-ms="7850" started-at="2019-09-18T07:00:05Z" depends-on-methods="WeatherMap.Runner.init_browser" finished-at="2019-09-18T07:00:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- open_site -->
+        <test-method status="PASS" signature="verify_site()[pri:3, instance:WeatherMap.Runner@5ce81285]" name="verify_site" duration-ms="5113" started-at="2019-09-18T07:00:13Z" finished-at="2019-09-18T07:00:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_site -->
+        <test-method status="PASS" signature="current_location()[pri:4, instance:WeatherMap.Runner@5ce81285]" name="current_location" duration-ms="6131" started-at="2019-09-18T07:00:18Z" finished-at="2019-09-18T07:00:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- current_location -->
+        <test-method status="PASS" signature="search_city()[pri:5, instance:WeatherMap.Runner@5ce81285]" name="search_city" duration-ms="5906" started-at="2019-09-18T07:00:24Z" finished-at="2019-09-18T07:00:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- search_city -->
+        <test-method status="PASS" signature="read_curday_weather()[pri:6, instance:WeatherMap.Runner@5ce81285]" name="read_curday_weather" duration-ms="241" started-at="2019-09-18T07:00:30Z" finished-at="2019-09-18T07:00:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- read_curday_weather -->
+        <test-method status="PASS" signature="read_tomorrow_weather()[pri:7, instance:WeatherMap.Runner@5ce81285]" name="read_tomorrow_weather" duration-ms="258" started-at="2019-09-18T07:00:30Z" finished-at="2019-09-18T07:00:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- read_tomorrow_weather -->
+        <test-method status="PASS" signature="read_daftomorrow_weather()[pri:8, instance:WeatherMap.Runner@5ce81285]" name="read_daftomorrow_weather" duration-ms="253" started-at="2019-09-18T07:00:31Z" finished-at="2019-09-18T07:00:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- read_daftomorrow_weather -->
+        <test-method status="PASS" signature="close_browser()[pri:0, instance:WeatherMap.Runner@5ce81285]" name="close_browser" is-config="true" duration-ms="179" started-at="2019-09-18T07:00:31Z" finished-at="2019-09-18T07:00:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close_browser -->
+      </class> <!-- WeatherMap.Runner -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

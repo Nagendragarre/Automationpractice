@@ -1,5 +1,7 @@
 package Automation.POC;
 
+import java.io.FileInputStream;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -9,10 +11,17 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Signup {
+public class Signup extends Objectrepo_parser {
+	
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
+		
+		Objectrepo_parser parser = new Objectrepo_parser();
+		Properties prop = new Properties();
+		FileInputStream Fi = new FileInputStream("/Users/nisum/git/Automationpractice/POC/src/test/java/Automation/POC/config.properties");
+		prop.load(Fi);
+		
 		
 System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/chromedriver");
         // Chrome Initialization 
@@ -20,35 +29,35 @@ System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/ch
 		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		// Navigating to the URL
-		driver.get("http://automationpractice.com/index.php");
-		driver.findElement(By.className("login")).click();
+		driver.get(prop.getProperty("url"));
+		driver.findElement(parser.getbjectLocator("login_btn")).click();
 		// Creating a new user account
-		driver.findElement(By.id("email_create")).sendKeys("ttt.gaptech@gmail.com");
-		driver.findElement(By.id("SubmitCreate")).click();
+		driver.findElement(parser.getbjectLocator("createemail")).sendKeys(prop.getProperty("new_username"));
+		driver.findElement(parser.getbjectLocator("SubmitCreate")).click();
 		// Filling the form for the new user creation
-		driver.findElement(By.id("id_gender1")).click();
-		driver.findElement(By.id("customer_firstname")).sendKeys("Test");
-		driver.findElement(By.id("customer_lastname")).sendKeys("Test");
-		driver.findElement(By.name("passwd")).sendKeys("tester");
-	    Select days = new Select (driver.findElement(By.id("days")));
-		Select months = new Select (driver.findElement(By.id("months")));
-		Select Years = new Select (driver.findElement(By.id("years")));
+		driver.findElement(parser.getbjectLocator("id_gender1")).click();
+		driver.findElement(parser.getbjectLocator("customer_firstname")).sendKeys(prop.getProperty("new_firstname"));
+		driver.findElement(parser.getbjectLocator("customer_lastname")).sendKeys(prop.getProperty("new_lastname"));
+		driver.findElement(parser.getbjectLocator("passwd")).sendKeys(prop.getProperty("new_password"));
+	    Select days = new Select (driver.findElement(parser.getbjectLocator("days")));
+		Select months = new Select (driver.findElement(parser.getbjectLocator("months")));
+		Select Years = new Select (driver.findElement(parser.getbjectLocator("years")));
 		days.selectByIndex(8);
 		months.selectByValue("7");
 		Years.selectByValue("1990");
-	    driver.findElement(By.id("firstname")).sendKeys("Test");
-	    driver.findElement(By.id("lastname")).sendKeys("Test");
-	    driver.findElement(By.id("address1")).sendKeys("559 S Court St");
-	    driver.findElement(By.id("address2")).sendKeys("Grove Court Apartments");
-	    driver.findElement(By.id("city")).sendKeys("Montgomery");
-	    Select States = new Select ( driver.findElement(By.name("id_state")));
-	    Select Country = new Select (driver.findElement(By.name("id_country")));
+	    driver.findElement(parser.getbjectLocator("firstname")).sendKeys(prop.getProperty("new_firstname"));
+	    driver.findElement(parser.getbjectLocator("lastname")).sendKeys(prop.getProperty("new_lastname"));
+	    driver.findElement(parser.getbjectLocator("address1")).sendKeys(prop.getProperty("new_address1"));
+	    driver.findElement(parser.getbjectLocator("address2")).sendKeys(prop.getProperty("new_address2"));
+	    driver.findElement(parser.getbjectLocator("city")).sendKeys(prop.getProperty("new_city"));
+	    Select States = new Select ( driver.findElement(parser.getbjectLocator("id_state")));
+	    Select Country = new Select (driver.findElement(parser.getbjectLocator("id_country")));
 	    States.selectByValue("1");
-	    driver.findElement(By.id("postcode")).sendKeys("36104");
+	    driver.findElement(parser.getbjectLocator("postcode")).sendKeys(prop.getProperty("new_postcode"));
 	    Country.selectByValue("21");
-	    driver.findElement(By.id("phone_mobile")).sendKeys("334-296-3024");
-	    driver.findElement(By.id("alias")).sendKeys("Home");
-	    driver.findElement(By.id("submitAccount")).click();
+	    driver.findElement(parser.getbjectLocator("phone_mobile")).sendKeys(prop.getProperty("new_phone_mobile"));
+	    driver.findElement(parser.getbjectLocator("alias")).sendKeys(prop.getProperty("new_alias"));
+	    driver.findElement(parser.getbjectLocator("submitAccount")).click();
 	    // Verifying and validating the new user creation.
 	    driver.findElement(By.xpath("//a[@href='http://automationpractice.com/']")).click();
 	    WebDriverWait wait = new WebDriverWait(driver,30);

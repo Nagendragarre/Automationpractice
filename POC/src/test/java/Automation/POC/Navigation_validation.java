@@ -29,8 +29,10 @@ public class Navigation_validation extends Navigate {
 		
 		
 		driver.get(prop.getProperty("url"));
-		nv.forward(driver);
+		
 		nv.backward(driver);
+		nv.forward(driver);
+		driver.close();
 	}
 
 }
