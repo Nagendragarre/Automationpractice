@@ -11,6 +11,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
+import utils.Objectrepo_parser;
+
 public class Sections_stats extends Objectrepo_parser{
 
 	   static WebDriver driver;

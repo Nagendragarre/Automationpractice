@@ -3,13 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="WeatherMap.Runner">
+      <class name="Steps">
         <methods>
+          <include name="set_excel"/>
           <include name="close_browser"/>
-          <include name="read_objrep"/>
-          <include name="read_daftomorrow_weather"/>
+          <include name="intiate_browser"/>
+          <include name="login_user"/>
         </methods>
-      </class> <!-- WeatherMap.Runner -->
+      </class> <!-- Steps -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

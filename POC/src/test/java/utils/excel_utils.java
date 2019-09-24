@@ -1,4 +1,4 @@
-package Automation.POC;
+package utils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,19 +9,13 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
-
-
-public class Healper {
+public class excel_utils {
+	
 	public static Workbook wb;
 	public static Sheet sh; 
 	public static Row row;
 	public static Cell cell;
-	public static WebDriver driver;
-	
 	
 	public static void setExcelFile(String Path, String SheetName) throws Exception {
 
@@ -40,9 +34,29 @@ public class Healper {
 				throw (e);
 		}
 	}
-	public static String getCellData(int RowNum, int ColNum) throws Exception{
+	
+	public static void config_excel (String Path) {
+		
+		try {
+			String fileType = Path.substring(Path.indexOf(".")); 
+			File f = new File(Path);
+			FileInputStream is = new FileInputStream(f);
+			if(fileType.equals(".xls"))
+				wb = new HSSFWorkbook(is);
+			else if(fileType.equals(".xlsx"))
+				wb = new XSSFWorkbook(is);
+			
+			
+		} 
+		catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
+	}
+	public static String getCellData(int sheetnumber, int RowNum, int ColNum) throws Exception{
 
 		try{
+			sh=wb.getSheetAt(sheetnumber);
 				cell = sh.getRow(RowNum).getCell(ColNum);
 				String CellData = cell.getStringCellValue();
 				return CellData;
@@ -51,35 +65,16 @@ public class Healper {
 					return"";
 			}}
 	
-	public static void click(WebElement element) {
-		element.click();
-	}
+	public static String getCellData(String Sheetname, int RowNum, int ColNum) throws Exception{
 
-	public void forward (WebDriver driver) {
-		driver.navigate().forward();
-		
-	}
-    public void backward (WebDriver driver) {
-    	driver.navigate().back();
-    	
-    }
-    public void dropdown_select_index (Select element, int i) {
-    	element.selectByIndex(i);
-    	
-    	
-    }
-    public void dropdown_select_string (Select element, String str) {
-    	element.selectByValue(str); 	
-    }
-    public void open_site(String URL) {
-    	driver.get(URL);
-    }
-    public void dropdown_deselectall (Select element) {
-    	element.deselectAll();
-    }
-    
+		try{
+			sh=wb.getSheet(Sheetname);
+				cell = sh.getRow(RowNum).getCell(ColNum);
+				String CellData = cell.getStringCellValue();
+				return CellData;
 
-
-
+			}catch (Exception e){
+					return"";
+			}}
 
 }
